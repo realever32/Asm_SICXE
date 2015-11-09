@@ -1,7 +1,7 @@
 /*	
  *	Name:		HW1-2.c
  *	Author:		k1tten
- *	Date:		2015/11/08
+ *	Date:		2015/11/09
  *	Description:	Calculate the given math statement and fing out the CF, ZF, OF, SF.
  */
 #include<iostream>
@@ -26,14 +26,14 @@ int CF_flag( int num1, int num2, int result ){
 	else
 		bigger = num2;
 
-	//Use the result to find the CF value.
+	//Use the result and length to find the CF value.
 	
 	int len_num1 	= floor(log10(abs(num1))) +1;	
 	int len_num2	= floor(log10(abs(num2))) +1;	
 	int len_result  = floor(log10(abs(result))) +1;
 	int len_bigger 	= floor(log10(abs(bigger))) +1;
 
-	//To use if and pow to find if it happened carry.
+	//Check if the carry was happened.
 	
 	if( len_result / len_bigger != 1 )
 
