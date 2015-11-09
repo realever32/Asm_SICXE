@@ -11,27 +11,6 @@
 #include<stdint.h>
 #include<stdio.h>
 
-unsigned int getLength ( int nums ){
-
-	unsigned int length = 0;
-
-	//if there's the sign '-' beneath variable, it'll make more larger.
-	
-	if( nums < 0 ){
-    		length++;		
-	    	nums = abs( nums );
-	}
-	
-	for( unsigned char c = 1; c<10; c++ )
-	{
-	   if( nums < pow(10,c))  //when nums value is smaller than a pow's value,
-	      	length += c;	  //that you can know the length.
-	}
-
-	return length;
-
-}
-
 int CF_flag( int num1, int num2, int result ){
 	
 	//Carry Flag, when it happened carry in the first bit of value ( not sigh bit ).
@@ -49,19 +28,16 @@ int CF_flag( int num1, int num2, int result ){
 
 	//Use the result to find the CF value.
 	
-	int len_num1 	= getLength(num1);	
-	int len_num2	= getLength(num2);	
-	int len_result  = getLength(result);
-	int len_bigger 	= getLength(bigger);
+	int len_num1 	= floor(log10(abs(num1))) +1;	
+	int len_num2	= floor(log10(abs(num2))) +1;	
+	int len_result  = floor(log10(abs(result))) +1;
+	int len_bigger 	= floor(log10(abs(bigger))) +1;
 
 	//To use if and pow to find if it happened carry.
 	
-	if( len_result > len_bigger )
+	if( len_result / len_bigger != 1 )
+
 		CF = 1;
-	else if( ( bigger / pow(10,len_bigger) ) != ( result / pow(10,len_bigger) ) )
-		CF = 1;
-	else
-		CF = 0;
 
 	//return the Carry Flag
 	return  CF;
@@ -137,7 +113,7 @@ int main(){
 
 	//(a). x+y
 	
-	printf("(a). x+y \n");
+	printf(" (a). x+y \n");
 	printf(" Decimal 	= %ld \n", x+y );
 	printf(" Hexadecimal	= %#X \n", Hex_a );
 	printf(" CF = %d \n", CF_flag( x,y,x+y ));
@@ -149,7 +125,7 @@ int main(){
 
 	//(b). x-y
 	
-	printf("(b). x-y \n");
+	printf(" (b). x-y \n");
 	printf(" Decimal 	= %ld \n", x-y );
 	printf(" Hexadecimal	= %#X \n", Hex_b );
 	printf(" CF = %d \n", CF_flag( x,y,x-y ));
@@ -161,7 +137,7 @@ int main(){
 
 	//(c). u+v
 	
-	printf("(c). u+v \n");
+	printf(" (c). u+v \n");
 	printf(" Decimal 	= %ld \n", u+v );
 	printf(" Hexadecimal	= %#X \n", Hex_c );
 	printf(" CF = %d \n", CF_flag( u,v,u+v ));
@@ -173,7 +149,7 @@ int main(){
 
 	//(d). u-y
 	
-	printf("(d). u-y \n");
+	printf(" (d). u-y \n");
 	printf(" Decimal 	= %ld \n",   u-y );
 	printf(" Hexadecimal	= %#X \n", Hex_d );
 	printf(" CF = %d \n", CF_flag( u,y,u-y ));
@@ -185,7 +161,7 @@ int main(){
 
 	//(e). w+v
 	
-	printf("(e). w+v \n");
+	printf(" (e). w+v \n");
 	printf(" Decimal 	= %ld \n",   w+v );
 	printf(" Hexadecimal	= %#X \n", Hex_e );
 	printf(" CF = %d \n", CF_flag( w,v,w+v ));
@@ -197,7 +173,7 @@ int main(){
 
 	//(f). u-w
 	
-	printf("(f). u-w \n");
+	printf(" (f). u-w \n");
 	printf(" Decimal 	= %ld \n", u-w );
 	printf(" Hexadecimal	= %#X \n", Hex_f );
 	printf(" CF = %d \n", CF_flag( u,w,u-w ));
