@@ -39,6 +39,12 @@ int CF_flag( int num1, int num2, int result ){
 
 		CF = 1;
 
+	if( len_result == len_bigger)
+	       if( int(result / pow(10,len_result-1)) != int(bigger / pow(10,len_bigger-1)) )
+		{
+			CF = 1;	       
+		}
+
 	//return the Carry Flag
 	return  CF;
 }
