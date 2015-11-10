@@ -81,6 +81,7 @@ int OF_flag( int OF_num1, int OF_num2, long int result ){
 
 	//Overflow flag, when overflow happened, OF will be true.
 	//TODO: http://www.fefe.de/intof.html
+	//TODO: http://stackoverflow.com/questions/2633661/how-to-check-integer-overflow-in-c
 
 	int OF = 0;
 	
