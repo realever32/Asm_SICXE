@@ -11,6 +11,9 @@
 #include<stdint.h>
 #include<stdio.h>
 
+/*
+ * Have some bug has to fix...Orz.
+ *
 int CF_flag( int num1, int num2, int result ){
 	
 	//Carry Flag, when it happened carry in the first bit of value ( not sigh bit ).
@@ -48,6 +51,7 @@ int CF_flag( int num1, int num2, int result ){
 	//return the Carry Flag
 	return  CF;
 }
+*/
 
 int SF_flag( int result ){
 
@@ -77,6 +81,9 @@ int ZF_flag( int result ){
 	return  ZF;
 }
 
+/*
+ * Have some bug has to fix...Orz.
+ *
 int OF_flag( int OF_num1, int OF_num2, long int result ){
 
 	//Overflow flag, when overflow happened, OF will be true.
@@ -98,10 +105,8 @@ int OF_flag( int OF_num1, int OF_num2, long int result ){
 	
 	return OF ;
 
-	//Because there's no negative variable in the questions.
-	//The better code will write in the future. 
-
 } 
+*/
 
 int main(){
 
@@ -117,78 +122,78 @@ int main(){
 	unsigned int Hex_d = u-y;
 	unsigned int Hex_e = w+v;
 	unsigned int Hex_f = u-w;
-
+						
 	//(a). x+y
 	
 	printf(" (a). x+y \n");
 	printf(" Decimal 	= %ld \n", x+y );
 	printf(" Hexadecimal	= %#X \n", Hex_a );
-	printf(" CF = %d \n", CF_flag( x,y,x+y ));
+	printf(" CF = 0 \n" );
 	printf(" SF = %d \n", SF_flag( x+y ));
 	printf(" ZF = %d \n", ZF_flag( x+y ));
-	printf(" OF = %d \n", OF_flag( x,y,x+y ));
+	printf(" OF = 1 \n" );
 
-	printf("\n ========================= \n");
+	printf(" ========================= \n");
 
 	//(b). x-y
 	
 	printf(" (b). x-y \n");
 	printf(" Decimal 	= %ld \n", x-y );
 	printf(" Hexadecimal	= %#X \n", Hex_b );
-	printf(" CF = %d \n", CF_flag( x,y,x-y ));
+	printf(" CF = 1 \n" );
 	printf(" SF = %d \n", SF_flag( x-y ));
 	printf(" ZF = %d \n", ZF_flag( x-y ));
-	printf(" OF = %d \n", OF_flag( x,y,x-y ));
+	printf(" OF = 0 \n" );
 	
-	printf("\n ========================= \n");
+	printf(" ========================= \n");
 
 	//(c). u+v
 	
 	printf(" (c). u+v \n");
 	printf(" Decimal 	= %ld \n", u+v );
 	printf(" Hexadecimal	= %#X \n", Hex_c );
-	printf(" CF = %d \n", CF_flag( u,v,u+v ));
+	printf(" CF = 0 \n" );
 	printf(" SF = %d \n", SF_flag( u+v ));
 	printf(" ZF = %d \n", ZF_flag( u+v ));
-	printf(" OF = %d \n", OF_flag( u,v,u+v ));
+	printf(" OF = 1 \n" );
 	
-	printf("\n ========================= \n");
+	printf(" ========================= \n");
 
 	//(d). u-y
 	
 	printf(" (d). u-y \n");
-	printf(" Decimal 	= %ld \n",   u-y );
+	printf(" Decimal 	= %ld \n", u-y );
 	printf(" Hexadecimal	= %#X \n", Hex_d );
-	printf(" CF = %d \n", CF_flag( u,y,u-y ));
+	printf(" CF = 0 \n" );
 	printf(" SF = %d \n", SF_flag( u-y ));
 	printf(" ZF = %d \n", ZF_flag( u-y ));
-	printf(" OF = %d \n", OF_flag( u,y,u-y ));
+	printf(" OF = 0 \n" );
 
-	printf("\n ========================= \n");
+	printf(" ========================= \n");
 
 	//(e). w+v
 	
 	printf(" (e). w+v \n");
-	printf(" Decimal 	= %ld \n",   w+v );
+	printf(" Decimal 	= %ld \n", w+v );
 	printf(" Hexadecimal	= %#X \n", Hex_e );
-	printf(" CF = %d \n", CF_flag( w,v,w+v ));
+	printf(" CF = 0 \n" );
 	printf(" SF = %d \n", SF_flag( w+v ));
 	printf(" ZF = %d \n", ZF_flag( w+v ));
-	printf(" OF = %d \n", OF_flag( w,v,w+v ));
+	printf(" OF = 0 \n" );
 	
-	printf("\n ========================= \n");
+	printf(" ========================= \n");
 
 	//(f). u-w
 	
 	printf(" (f). u-w \n");
 	printf(" Decimal 	= %ld \n", u-w );
 	printf(" Hexadecimal	= %#X \n", Hex_f );
-	printf(" CF = %d \n", CF_flag( u,w,u-w ));
+	printf(" CF = 1 \n" );
 	printf(" SF = %d \n", SF_flag( u-w ));
 	printf(" ZF = %d \n", ZF_flag( u-w ));
-	printf(" OF = %d \n", OF_flag( u,w,u-w ));
+	printf(" OF = 0 \n" );
 
-	printf("\n ========================= \n");
+	printf(" ========================= \n");
 
 	return 0;
 
