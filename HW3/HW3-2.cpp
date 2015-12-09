@@ -29,7 +29,7 @@ int main(){
 	int StrSize = strlen(str);
 	int i = 0;
 	int count = 0;
-	char ans = 0;
+	char buf = 0;
 
 	strcpy(istr,str);
 
@@ -40,25 +40,53 @@ int main(){
 		case 'b':
 			 for(i = StrSize - 1; i > 1; i--){
 				
-				ans += (istr[i] - '0') * pow(2,count);
+				buf += (istr[i] - '0') * pow(2,count);
 	       			count++;			
 			 }
 			 break;
 		case 'x':
 			 for(i = StrSize - 1; i > 1; i--){
 
-				 ans += (istr[i] - '0') * pow(16,count);
+				 buf += (istr[i] - '0') * pow(16,count);
 				 count++;												                  }
 			 break;
 		case 'q':
 			 for(i = StrSize - 1; i > 1; i--){
 
-				 ans += (istr[i] - '0') * pow(8,count);
+				 buf += (istr[i] - '0') * pow(8,count);
 				 count++;
 			 }
 			 break;
 	}
 
-	printf("%c",ans);
+	int StBinary[8] = {};
+
+	for(i = 0; i < 8; ++i){
+
+		StBinary[i] = ( ( buf >> i ) & 1 );
+	}
+
+        char ans[10] = {};
+
+	ans[9] = '0';
+	ans[8] = 'b';
+
+	for(i = 7; i >= 0 ; i--){
+
+		if( StBinary[i] == 0)
+
+			ans[i] += 48;
+                else
+                        ans[i] += 49;
+        }
+
+        for(i = 9; i >= 0; i--){
+
+		putc(ans[i],stdout);
+        }
+
+        printf("\n");
+
+
 	return 0;	
 }
